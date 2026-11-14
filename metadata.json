@@ -1,0 +1,6 @@
+{
+  "name": "PayFuse Super Admin",
+  "description": "Multi-tenant Payroll, HRMS and Workforce Management SaaS Platform Super Admin Console",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

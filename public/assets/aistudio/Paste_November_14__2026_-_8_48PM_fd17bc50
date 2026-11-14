@@ -1,0 +1,1785 @@
+# PAYFUSE – COMPLETE SUPER ADMIN SAAS PLATFORM
+## Master UI/UX Development Specification
+
+You are a senior product designer, enterprise SaaS architect and expert React frontend engineer.
+
+Build a complete, production-quality Super Admin application for PayFuse, a multi-tenant Payroll, HRMS and Workforce Management SaaS platform.
+
+IMPORTANT: This task is exclusively for the PLATFORM SUPER ADMIN. Do not build the Company Admin dashboard or Employee dashboard in this phase.
+
+The platform will eventually serve companies across IT, ITES, BPO, call centres, construction, manufacturing, retail, hospitality, healthcare, logistics and other industries.
+
+All companies will use a common payroll engine. Industry differences will be handled through configurable company and employee policies.
+
+The Super Admin manages the entire SaaS platform, not individual company payroll operations.
+
+---
+
+# PART 1 – DESIGN REFERENCE AND VISUAL REQUIREMENTS
+
+Use the user-uploaded PayFuse Super Admin Dashboard screenshot as the primary visual reference.
+
+Reproduce its visual language and layout as closely as possible.
+
+Do not generate an entirely different dashboard design.
+
+## Design identity
+
+Product name: PayFuse
+
+Product description: Payroll & Workforce SaaS
+
+Design style:
+- Premium enterprise SaaS.
+- Modern, elegant, professional.
+- Clean and spacious.
+- Information-rich without looking crowded.
+- High-quality dashboard visualisations.
+
+## Colour system
+
+Primary sidebar:
+- Deep navy: #0B1230 or visually similar.
+- Sidebar active item: Purple gradient.
+- Main background: #F7F7FC.
+- Cards: White.
+- Primary accent: #7050F5.
+- Secondary accent: #478BFA.
+- Success: Green.
+- Warning: Amber.
+- Error: Red.
+- Main text: Dark navy.
+- Secondary text: Muted slate.
+
+## Typography
+
+Use Inter or a similar professional font.
+
+Typography hierarchy:
+- Page heading: 24–28px.
+- Section headings: 16–18px.
+- Card labels: 13–14px.
+- Main KPI values: 25–30px.
+- Table content: 13–14px.
+
+## Layout requirements
+
+Desktop:
+- Fixed left sidebar approximately 240px.
+- Top navigation approximately 60px.
+- Main content uses remaining width.
+- Consistent 16–20px card spacing.
+- Rounded cards with subtle borders and shadows.
+- Consistent card heights within dashboard rows.
+
+The dashboard must use the same alignment as the reference screenshot.
+
+Tablet:
+- Collapsible sidebar.
+- Responsive card grid.
+
+Mobile:
+- Collapsible navigation drawer.
+- Two-column KPI layout where space allows.
+- Horizontally scrollable data tables.
+- Mobile-friendly forms and dialogs.
+
+Do not use excessive gradients, oversized illustrations or unnecessary animations.
+
+Use subtle transitions and micro-interactions.
+
+---
+
+# PART 2 – APPLICATION SHELL
+
+Create a reusable application shell containing:
+
+1. Left navigation sidebar.
+2. Top header.
+3. Breadcrumb navigation.
+4. Global search.
+5. Notification centre.
+6. Help centre.
+7. Super Admin profile menu.
+8. Main content area.
+9. Toast notification system.
+10. Global modal and drawer system.
+
+## Top navigation
+
+Left:
+- Application grid icon.
+- Current page title.
+- Breadcrumb.
+
+Centre:
+Global search field with placeholder:
+
+"Search companies, users, tickets, services..."
+
+Search should support:
+- Companies.
+- Platform users.
+- Subscription records.
+- Invoices.
+- Support tickets.
+- Service names.
+- Audit events.
+
+Right:
+- Notifications with unread count.
+- Help icon.
+- Super Admin profile.
+- Profile dropdown.
+
+Profile dropdown:
+- My Profile.
+- Account Settings.
+- Security Settings.
+- Change Password.
+- Session History.
+- Sign Out.
+
+Notification centre:
+- New company registrations.
+- Subscription renewals.
+- Failed payments.
+- Critical service incidents.
+- Support tickets.
+- Security alerts.
+- System announcements.
+
+Allow marking notifications as read, deleting individual notifications and viewing all notifications.
+
+---
+
+# PART 3 – COMPLETE SIDEBAR NAVIGATION
+
+Create the sidebar with the following exact structure.
+
+## 1. Dashboard
+- Platform Overview.
+
+## 2. Platform
+- Companies.
+- Subscriptions.
+- Plans & Billing.
+- Platform Users.
+- Access & Roles.
+
+## 3. Operations
+- Usage & Health.
+- Service Logs.
+- Integrations.
+- Data & Settings.
+
+## 4. Support
+- Support & Tickets.
+- Announcements.
+- Help & Docs.
+
+Sidebar requirements:
+- Expandable and collapsible navigation groups.
+- Active page highlighting.
+- Relevant Lucide icons.
+- Submenu indicators.
+- Notification badges.
+- Sidebar collapse control.
+- Persist collapsed/expanded preference during the session.
+- Tooltips when collapsed.
+- Proper navigation and breadcrumbs.
+
+Every navigation item must open a real implemented page.
+
+Do not create empty placeholder pages.
+
+---
+
+# PART 4 – MAIN SUPER ADMIN DASHBOARD
+
+Create the dashboard exactly following the reference screenshot.
+
+## A. Welcome header
+
+Display:
+
+"Good Morning, Super Admin"
+
+Subtitle:
+
+"Here's what's happening across your payroll platform today."
+
+Include a date range selector.
+
+Date range options:
+- Today.
+- Yesterday.
+- Last 7 days.
+- Last 30 days.
+- This month.
+- Last month.
+- This quarter.
+- This year.
+- Custom range.
+
+All date-based dashboard analytics must update when the date range changes.
+
+## B. KPI cards
+
+Create five KPI cards in the first row.
+
+### Card 1 – Total Companies
+Fields:
+- Total registered companies.
+- Percentage growth.
+- Comparison with previous period.
+
+Clicking opens Company Management.
+
+### Card 2 – Total Employees
+Fields:
+- Total employees across tenants.
+- Active employees.
+- Growth percentage.
+
+Clicking opens aggregated employee analytics.
+
+Do not expose individual employees' sensitive personal information through this KPI.
+
+### Card 3 – Payroll Processed
+Fields:
+- Total payroll amount processed.
+- Number of companies processing payroll.
+- Growth compared with previous period.
+
+Clicking opens aggregated payroll volume analytics.
+
+### Card 4 – Active Subscriptions
+Fields:
+- Active paid subscriptions.
+- Percentage of total active customer accounts.
+- Subscription growth.
+
+Clicking opens Subscription Management.
+
+### Card 5 – Open Support Tickets
+Fields:
+- Total open tickets.
+- Critical tickets.
+- Change from previous period.
+
+Clicking opens Support Management.
+
+All KPI cards must:
+- Have appropriate icons.
+- Show meaningful comparison indicators.
+- Support hover states.
+- Have clickable navigation.
+- Display loading and error states.
+
+## C. Second dashboard row
+
+Use a three-column layout.
+
+### Widget 1 – Payroll Volume Trend
+
+Create a large line/area chart.
+
+Data:
+- Month.
+- Total payroll processed.
+- Number of employees.
+- Number of companies.
+
+Add a segmented selector:
+- Amount (₹).
+- Employees.
+- Companies.
+
+Tooltip:
+- Month.
+- Payroll amount.
+- Employee count.
+- Company count.
+
+Use Recharts.
+
+### Widget 2 – Companies by Industry
+
+Create a donut chart.
+
+Categories:
+- IT & Software.
+- BPO / Call Centre.
+- Manufacturing.
+- Construction.
+- Retail & Hospitality.
+- Other Industries.
+
+Show:
+- Number of companies.
+- Percentage distribution.
+- Industry name.
+
+Clicking a category should open filtered companies.
+
+### Widget 3 – Subscription Overview
+
+Display plan distribution.
+
+Plans:
+- Essential.
+- Growth.
+- Business.
+- Enterprise.
+
+Each plan should display:
+- Number of companies.
+- Percentage distribution.
+- Active subscriptions.
+
+Clicking a plan should open the filtered subscription list.
+
+## D. Third dashboard row
+
+Use three cards.
+
+### Widget 1 – Company Onboarding
+
+Display onboarding funnel:
+
+1. Sign Up.
+2. Verification.
+3. Configuration.
+4. Go Live.
+
+Fields:
+- Number of companies at each stage.
+- Conversion rate.
+- Pending verification.
+- Average onboarding time.
+
+Clicking each stage opens the relevant filtered company records.
+
+### Widget 2 – Platform Health
+
+Show an overall uptime indicator and service status.
+
+Services:
+- Authentication Service.
+- Company Service.
+- Employee Service.
+- Attendance Service.
+- Payroll Service.
+- Compliance Service.
+- Reporting Service.
+- Integration Service.
+
+Show:
+- Operational.
+- Degraded.
+- Down.
+- Maintenance.
+
+The uptime figure and service status must be clearly identified as demo data until connected to monitoring APIs.
+
+### Widget 3 – Recent Activities
+
+Display the latest platform events.
+
+Examples:
+- New company onboarded.
+- Subscription upgraded.
+- Payment received.
+- Support ticket created.
+- Platform administrator added.
+- Integration configuration updated.
+
+Each activity:
+- Icon.
+- Description.
+- Timestamp.
+- Relevant record link.
+
+Add View All.
+
+## E. Fourth dashboard row
+
+### Widget 1 – Companies by Region
+
+Show regional distribution.
+
+Initial regions:
+- India.
+- Middle East.
+- APAC.
+- Other regions.
+
+Display:
+- Company count.
+- Percentage.
+- Horizontal progress bar.
+
+### Widget 2 – Top Growing Companies
+
+Table columns:
+- Company.
+- Industry.
+- Employee count.
+- Growth percentage.
+- Subscription plan.
+
+Add View All.
+
+## F. Dashboard interactions
+
+Implement:
+- Date filtering.
+- Chart filtering.
+- KPI navigation.
+- Table navigation.
+- Dashboard widget loading states.
+- Refresh data.
+- Export dashboard data.
+- Custom date range.
+- Responsive layouts.
+
+Use realistic demo records and clearly identify them as sample data.
+
+Never claim that mock data represents actual production metrics.
+
+---
+
+# PART 5 – COMPANY MANAGEMENT
+
+Route: /companies
+
+Build a complete company management module.
+
+## A. Company listing page
+
+Page header:
+"Companies"
+
+Subtitle:
+"Manage all companies registered on PayFuse."
+
+Header actions:
+- Export.
+- Import.
+- Add Company.
+
+KPI cards:
+- Total Companies.
+- Active Companies.
+- Pending Verification.
+- Suspended Companies.
+- Trial Companies.
+
+## B. Company table
+
+Columns:
+
+1. Checkbox.
+2. Company Logo.
+3. Company Name.
+4. Company ID.
+5. Industry.
+6. Employee Count.
+7. Subscription Plan.
+8. Registration Date.
+9. Account Status.
+10. Last Active.
+11. Actions.
+
+Actions:
+- View.
+- Edit.
+- Activate.
+- Suspend.
+- Delete.
+- More Actions.
+
+## C. Filters
+
+- Company name.
+- Company ID.
+- Industry.
+- Account status.
+- Subscription plan.
+- Registration date.
+- Employee count.
+- Region.
+- Verification status.
+
+Search should support partial matching.
+
+Include clear filters.
+
+## D. Add Company form
+
+Create a professional multi-step form.
+
+Step 1 – Basic Company Information:
+- Company legal name.
+- Display name.
+- Company registration number.
+- Business type.
+- Industry.
+- Sub-industry.
+- Company website.
+- Company email.
+- Company phone.
+- Company logo.
+- Company description.
+
+Step 2 – Address:
+- Country.
+- State.
+- City.
+- District.
+- Postal code.
+- Registered office address.
+- Billing address.
+
+Step 3 – Primary Contact:
+- Contact person's name.
+- Designation.
+- Email.
+- Phone.
+- Alternate contact.
+
+Step 4 – Business Configuration:
+- Company size.
+- Expected employee count.
+- Number of branches.
+- Number of locations.
+- Financial year.
+- Currency.
+- Time zone.
+- Primary language.
+
+Step 5 – Subscription:
+- Select plan.
+- Trial period.
+- Billing cycle.
+- Employee limit.
+- Module entitlements.
+
+Step 6 – Verification:
+- Required documents.
+- Verification status.
+- Internal notes.
+
+Buttons:
+- Previous.
+- Save as Draft.
+- Continue.
+- Create Company.
+
+## E. Company details page
+
+Create tabs:
+
+1. Overview.
+2. Company Profile.
+3. Subscription.
+4. Usage.
+5. Branches.
+6. Contacts.
+7. Enabled Modules.
+8. Verification.
+9. Activity History.
+
+Overview:
+- Company information.
+- Employee count.
+- Subscription.
+- Usage statistics.
+- Registration date.
+- Account status.
+- Last activity.
+
+Company actions:
+- Edit Company.
+- Activate.
+- Suspend.
+- Change Subscription.
+- Enable Modules.
+- Disable Modules.
+- Reset Account Access.
+- View Audit History.
+- Delete Company.
+
+Suspension and deletion require confirmation.
+
+Deletion should use a controlled soft-delete/deactivation workflow with retention and legal holds considered. Do not permanently erase payroll or statutory records through a normal delete button.
+
+---
+
+# PART 6 – SUBSCRIPTION MANAGEMENT
+
+Route: /subscriptions
+
+KPI cards:
+- Total Subscriptions.
+- Active.
+- Trial.
+- Expiring Soon.
+- Expired.
+- Cancelled.
+
+Table columns:
+- Subscription ID.
+- Company.
+- Plan.
+- Billing Cycle.
+- Start Date.
+- Renewal Date.
+- Employee Limit.
+- Current Usage.
+- Amount.
+- Status.
+- Actions.
+
+Filters:
+- Plan.
+- Status.
+- Billing frequency.
+- Renewal period.
+- Company.
+- Amount.
+
+Actions:
+- View Subscription.
+- Edit Subscription.
+- Upgrade Plan.
+- Downgrade Plan.
+- Extend Trial.
+- Renew.
+- Pause.
+- Cancel.
+- Reactivate.
+
+## Subscription detail page
+
+Tabs:
+- Overview.
+- Billing History.
+- Plan Details.
+- Usage.
+- Renewals.
+- Changes History.
+
+Display:
+- Subscription ID.
+- Company.
+- Selected plan.
+- Billing cycle.
+- Start date.
+- End date.
+- Next billing date.
+- Employee limit.
+- Current employee usage.
+- Enabled modules.
+- Discount.
+- Tax.
+- Final amount.
+
+All plan changes must have a confirmation step and a recorded audit event.
+
+---
+
+# PART 7 – PLANS & BILLING
+
+Route: /billing
+
+Create sub-navigation:
+
+1. Pricing Plans.
+2. Add-ons.
+3. Invoices.
+4. Payments.
+5. Refunds.
+6. Revenue Analytics.
+
+## A. Pricing Plans
+
+Plan listing columns:
+- Plan name.
+- Plan code.
+- Monthly price.
+- Annual price.
+- Employee limit.
+- Enabled modules.
+- Subscribers.
+- Status.
+
+Actions:
+- View.
+- Create.
+- Edit.
+- Duplicate.
+- Activate.
+- Deactivate.
+- Archive.
+
+Create/Edit plan fields:
+- Plan name.
+- Plan code.
+- Description.
+- Monthly pricing.
+- Annual pricing.
+- Free trial duration.
+- Employee limit.
+- Branch limit.
+- Storage limit.
+- API usage limit.
+- Module entitlements.
+- Support level.
+- Status.
+
+Modules should be individually configurable:
+- Employee Management.
+- Attendance.
+- Leave.
+- Payroll.
+- Compliance.
+- Expense Management.
+- Recruitment.
+- Performance.
+- Reports.
+- Contractor Management.
+- API Access.
+
+Do not change existing customers' entitlements silently when a plan is edited. Use versioned plan configurations.
+
+## B. Add-ons
+
+Fields:
+- Add-on name.
+- Description.
+- Pricing.
+- Billing frequency.
+- Eligibility.
+- Status.
+
+Actions:
+- Create.
+- View.
+- Edit.
+- Activate.
+- Deactivate.
+- Archive.
+
+## C. Invoices
+
+Columns:
+- Invoice number.
+- Company.
+- Subscription ID.
+- Invoice date.
+- Due date.
+- Amount.
+- Tax.
+- Total.
+- Payment status.
+- Actions.
+
+Actions:
+- View.
+- Download PDF.
+- Send Invoice.
+- Mark as Paid with reconciliation evidence.
+- Cancel/Void where legally permitted.
+
+## D. Payments
+
+Columns:
+- Transaction ID.
+- Company.
+- Invoice.
+- Payment gateway.
+- Amount.
+- Payment date.
+- Payment method.
+- Transaction status.
+- Gateway reference.
+- Actions.
+
+Actions:
+- View.
+- Verify.
+- Reconcile.
+- Download Receipt.
+- Initiate Refund, subject to authorization.
+- View Gateway Response.
+
+Never fabricate payment success.
+
+## E. Refunds
+
+Fields:
+- Refund ID.
+- Payment ID.
+- Company.
+- Requested amount.
+- Approved amount.
+- Reason.
+- Status.
+- Initiated date.
+- Completed date.
+
+Actions:
+- View.
+- Approve.
+- Reject.
+- Process Refund.
+- Track Status.
+
+Use explicit confirmation and role authorization for financial operations.
+
+## F. Revenue Analytics
+
+Charts:
+- Monthly recurring revenue.
+- Annual recurring revenue.
+- Revenue by plan.
+- Revenue by industry.
+- New subscriptions.
+- Churn.
+- Failed payments.
+- Outstanding invoices.
+
+Include date filters and CSV/PDF export.
+
+---
+
+# PART 8 – PLATFORM USERS
+
+Route: /platform-users
+
+This module manages PayFuse internal administrators and staff only.
+
+It does not manage company employees.
+
+KPI cards:
+- Total Platform Users.
+- Active Users.
+- Inactive Users.
+- Pending Invitations.
+- Locked Accounts.
+
+Table columns:
+- Profile.
+- Name.
+- Email.
+- Phone.
+- Role.
+- Department.
+- Last Login.
+- Account Status.
+- Created Date.
+- Actions.
+
+Create User form:
+- Full Name.
+- Email.
+- Phone.
+- Profile Photo.
+- Department.
+- Designation.
+- Role.
+- Permissions.
+- Status.
+
+Actions:
+- Create User.
+- View User.
+- Edit User.
+- Send Invitation.
+- Resend Invitation.
+- Activate.
+- Deactivate.
+- Lock Account.
+- Unlock Account.
+- Reset Password.
+- Revoke Sessions.
+- Delete/Deactivate Account.
+
+## User detail page
+
+Tabs:
+- Profile.
+- Role & Permissions.
+- Login History.
+- Active Sessions.
+- Activity History.
+
+Protect privileged account operations using re-authentication and audit logging.
+
+---
+
+# PART 9 – ACCESS & ROLES
+
+Route: /access-roles
+
+Create three sections:
+
+1. Roles.
+2. Permissions.
+3. Access Policies.
+
+## A. Default roles
+
+- Platform Super Admin.
+- Platform Administrator.
+- Support Administrator.
+- Billing Administrator.
+- Operations Administrator.
+- Security Auditor.
+- Read-only Analyst.
+
+## B. Role listing
+
+Columns:
+- Role Name.
+- Role Code.
+- Description.
+- Assigned Users.
+- Permission Count.
+- System Role / Custom Role.
+- Status.
+- Actions.
+
+Actions:
+- Create Role.
+- View Role.
+- Edit Role.
+- Duplicate Role.
+- Assign Users.
+- Deactivate Role.
+- Delete Custom Role.
+
+System-critical roles cannot be deleted.
+
+## C. Create/Edit Role
+
+Fields:
+- Role Name.
+- Role Code.
+- Description.
+- Role Category.
+- Assigned Permissions.
+- Status.
+
+Permission groups:
+- Dashboard.
+- Companies.
+- Subscriptions.
+- Billing.
+- Platform Users.
+- Access & Roles.
+- Usage & Health.
+- Service Logs.
+- Integrations.
+- Data & Settings.
+- Support & Tickets.
+- Announcements.
+- Audit & Security.
+
+Each permission should support:
+- View.
+- Create.
+- Edit.
+- Delete.
+- Approve.
+- Export.
+- Activate.
+- Suspend.
+- Manage.
+
+Create a permission matrix with grouped checkboxes.
+
+Include:
+- Select All.
+- Deselect All.
+- Save Role.
+- Cancel.
+
+Prevent privilege escalation and accidental removal of the last active Super Admin.
+
+---
+
+# PART 10 – USAGE & HEALTH
+
+Route: /usage-health
+
+This is the platform operations monitoring dashboard.
+
+## KPI cards
+
+- Overall Uptime.
+- Total API Requests.
+- Average Response Time.
+- Error Rate.
+- Active Background Jobs.
+- Failed Jobs.
+- Database Utilisation.
+- Storage Utilisation.
+
+## Service monitoring
+
+Services:
+- Authentication.
+- Company.
+- Employee.
+- Attendance.
+- Payroll.
+- Compliance.
+- Subscription.
+- Billing.
+- Notification.
+- Documents.
+- Reporting.
+- Integration.
+
+Each service card displays:
+- Service name.
+- Current status.
+- Response time.
+- Request count.
+- Error rate.
+- Last health check.
+- Version.
+- Last deployment.
+
+Statuses:
+- Operational.
+- Degraded.
+- Down.
+- Maintenance.
+- Unknown.
+
+## Detailed service page
+
+Tabs:
+- Overview.
+- Metrics.
+- Error History.
+- Dependencies.
+- Deployments.
+- Health Checks.
+
+Graphs:
+- Response time.
+- Requests per minute.
+- Error rate.
+- CPU and memory, when monitoring data is available.
+
+Add:
+- Refresh.
+- Time-range selection.
+- Export.
+- View logs.
+
+Use demo status labels until connected to actual monitoring data.
+
+Do not implement fake restart, redeploy or production intervention actions.
+
+---
+
+# PART 11 – SERVICE LOGS
+
+Route: /service-logs
+
+Create a central log viewer.
+
+Filters:
+- Service.
+- Environment.
+- Log level.
+- Date and time.
+- Request ID.
+- Trace ID.
+- Tenant ID.
+- Status code.
+
+Log levels:
+- DEBUG.
+- INFO.
+- WARN.
+- ERROR.
+- FATAL.
+
+Table:
+- Timestamp.
+- Service.
+- Environment.
+- Level.
+- Message.
+- Request ID.
+- Duration.
+- Status.
+
+Actions:
+- View Details.
+- Copy Request ID.
+- Copy Trace ID.
+- Export.
+- Open Related Logs.
+
+Detail drawer:
+- Full message.
+- Stack trace, if available.
+- Service metadata.
+- Correlation ID.
+- Request metadata.
+- Related events.
+
+Do not expose passwords, tokens, bank details, personal identifiers or other secrets in logs.
+
+---
+
+# PART 12 – INTEGRATIONS
+
+Route: /integrations
+
+Create integration categories:
+
+1. Payment Gateways.
+2. Banking.
+3. Email.
+4. SMS.
+5. WhatsApp.
+6. Biometric Devices.
+7. Accounting.
+8. E-signature.
+9. Document Services.
+10. Government Portals.
+11. Webhooks.
+12. External APIs.
+
+Integration cards should show:
+- Provider name.
+- Provider logo.
+- Category.
+- Connection status.
+- Last sync.
+- Configuration status.
+- Actions.
+
+Actions:
+- View.
+- Configure.
+- Edit.
+- Test Connection.
+- Enable.
+- Disable.
+- Disconnect.
+- View Logs.
+
+Create/Edit integration form:
+- Integration name.
+- Provider.
+- API endpoint.
+- Authentication method.
+- Credentials reference.
+- Environment.
+- Webhook URL.
+- Retry policy.
+- Status.
+
+Never expose secrets after saving. Use masked credentials and secure secret references.
+
+Company-specific credentials must be isolated from platform-wide credentials.
+
+---
+
+# PART 13 – DATA & SETTINGS
+
+Route: /data-settings
+
+Subsections:
+
+## A. Global Configuration
+- Platform name.
+- Logo.
+- Favicon.
+- Default language.
+- Default currency.
+- Time zone.
+- Date format.
+- Time format.
+- Regional preferences.
+
+## B. Industry Configuration
+- Industry categories.
+- Industry codes.
+- Enable/disable industry options.
+- Sub-industry management.
+
+Industries should only be classification and configuration options.
+
+Do not create separate industry-specific payroll calculation engines.
+
+## C. Global Feature Management
+- Feature flags.
+- Module availability.
+- Beta features.
+- Feature rollout.
+- Tenant eligibility.
+
+## D. Notification Templates
+- Email templates.
+- SMS templates.
+- In-app templates.
+- WhatsApp templates.
+
+Fields:
+- Template name.
+- Event type.
+- Subject.
+- Message body.
+- Variables.
+- Language.
+- Status.
+
+Actions:
+- Create.
+- View.
+- Edit.
+- Duplicate.
+- Test.
+- Activate.
+- Deactivate.
+
+## E. Statutory Rule Configuration
+
+This is an administrative configuration area, not a replacement for a legally validated compliance engine.
+
+Display:
+- Rule name.
+- Jurisdiction.
+- State.
+- Rule category.
+- Effective date.
+- Version.
+- Approval status.
+- Source document.
+- Last reviewed date.
+
+Actions:
+- View.
+- Create Draft.
+- Edit Draft.
+- Submit for Approval.
+- Approve.
+- Publish.
+- Archive.
+
+Published statutory rules must be versioned and never silently overwritten.
+
+## F. Data Management
+- Data retention policies.
+- Storage monitoring.
+- Export requests.
+- Data access requests.
+- Backup status.
+- Archive management.
+
+Destructive actions require explicit approval and audit records.
+
+---
+
+# PART 14 – SUPPORT & TICKETS
+
+Route: /support-tickets
+
+KPI cards:
+- Total Tickets.
+- Open.
+- In Progress.
+- Waiting for Customer.
+- Resolved.
+- Critical.
+
+Table columns:
+- Ticket ID.
+- Subject.
+- Company.
+- Category.
+- Priority.
+- Assigned Agent.
+- Created Date.
+- Last Updated.
+- Status.
+- Actions.
+
+Categories:
+- Payroll.
+- Attendance.
+- Subscription.
+- Billing.
+- Technical Issue.
+- Account Access.
+- Integration.
+- Feature Request.
+- Other.
+
+Priority:
+- Low.
+- Medium.
+- High.
+- Critical.
+
+Actions:
+- View.
+- Assign.
+- Reassign.
+- Change Priority.
+- Add Internal Note.
+- Reply.
+- Resolve.
+- Reopen.
+- Close.
+
+Ticket detail page:
+- Ticket information.
+- Company information.
+- Conversation history.
+- Attachments.
+- Internal notes.
+- Assigned agent.
+- Status timeline.
+- Related tickets.
+
+Support agents must not see sensitive payroll or employee data unless explicitly authorized for a legitimate support task.
+
+---
+
+# PART 15 – ANNOUNCEMENTS
+
+Route: /announcements
+
+This module manages communications to companies using PayFuse.
+
+Listing columns:
+- Title.
+- Category.
+- Target Audience.
+- Created By.
+- Publish Date.
+- Expiry Date.
+- Status.
+- Actions.
+
+Create announcement:
+- Title.
+- Description.
+- Rich text content.
+- Image or attachment.
+- Announcement category.
+- Target companies.
+- Target subscription plans.
+- Target industries.
+- Target regions.
+- Publish date.
+- Expiry date.
+- Priority.
+- Status.
+
+Actions:
+- Create.
+- View.
+- Edit.
+- Preview.
+- Publish.
+- Schedule.
+- Unpublish.
+- Archive.
+- Delete Draft.
+
+Support draft, scheduled, published and archived states.
+
+---
+
+# PART 16 – HELP & DOCS
+
+Route: /help-docs
+
+Include:
+- Documentation categories.
+- Platform guides.
+- Admin guides.
+- API documentation links.
+- Frequently asked questions.
+- Troubleshooting guides.
+- Release notes.
+- Contact support.
+
+Allow authorised platform administrators to:
+- Create documentation.
+- Edit documentation.
+- Preview.
+- Publish.
+- Archive.
+
+---
+
+# PART 17 – AUDIT AND SECURITY
+
+Create this as a dedicated section accessible through the security and administration area.
+
+Audit log columns:
+- Event ID.
+- User.
+- Role.
+- Action.
+- Module.
+- Resource.
+- Timestamp.
+- IP address.
+- Result.
+
+Filters:
+- User.
+- Action.
+- Module.
+- Date.
+- Result.
+- Event type.
+
+Event types:
+- Login.
+- Logout.
+- Create.
+- Edit.
+- Delete.
+- Approve.
+- Suspend.
+- Activate.
+- Permission Change.
+- Financial Action.
+- Configuration Change.
+- Security Event.
+
+Detail drawer:
+- Event metadata.
+- Previous value.
+- New value, where appropriate.
+- Actor.
+- Timestamp.
+- Resource reference.
+- Request ID.
+- IP address.
+
+Audit logs must be append-only from the application UI.
+
+No edit or delete actions for audit events.
+
+Security dashboard:
+- Failed login attempts.
+- Locked accounts.
+- Active privileged sessions.
+- MFA status.
+- Suspicious activity.
+- Recent permission changes.
+- Security alerts.
+
+---
+
+# PART 18 – GLOBAL CRUD AND INTERACTION STANDARDS
+
+Every management page must follow the same interaction conventions.
+
+## Create
+- Open a modal, drawer or dedicated form page.
+- Validate required fields.
+- Show inline error messages.
+- Prevent duplicate records where applicable.
+- Show success toast after successful mock operation.
+
+## View
+- Open a complete detail page or drawer.
+- Display all relevant fields.
+- Show associated records.
+- Show history and audit activity.
+
+## Edit
+- Prepopulate existing information.
+- Validate changed fields.
+- Show unsaved changes warning.
+- Require confirmation for sensitive updates.
+
+## Delete
+- Confirmation dialog.
+- Explain the impact.
+- Use soft-delete or archive where appropriate.
+- Prevent deletion of records with protected dependencies.
+- Show audit activity.
+
+## Activate / Deactivate
+- Confirmation dialog.
+- Show the current status.
+- Explain the effect.
+- Update the status visually.
+
+## Bulk Actions
+Where applicable:
+- Select multiple rows.
+- Activate.
+- Deactivate.
+- Export.
+- Assign.
+- Archive.
+
+Do not implement bulk deletion for financially or legally sensitive records.
+
+## All tables must support
+- Search.
+- Sorting.
+- Filters.
+- Pagination.
+- Page-size selection.
+- Column alignment.
+- Empty states.
+- Loading skeletons.
+- Error states.
+- Responsive behaviour.
+- Export where appropriate.
+
+Use reusable table components instead of independently designing each table.
+
+---
+
+# PART 19 – REUSABLE COMPONENT SYSTEM
+
+Create shared components:
+
+1. AppSidebar.
+2. TopNavbar.
+3. Breadcrumbs.
+4. PageHeader.
+5. KPIStatCard.
+6. ChartCard.
+7. DataTable.
+8. SearchInput.
+9. FilterPopover.
+10. DateRangePicker.
+11. StatusBadge.
+12. ActionMenu.
+13. ConfirmationDialog.
+14. FormModal.
+15. DetailDrawer.
+16. Pagination.
+17. EmptyState.
+18. LoadingSkeleton.
+19. ToastNotifications.
+20. FileUpload.
+21. MultiSelect.
+22. PermissionMatrix.
+23. ActivityTimeline.
+24. ExportMenu.
+
+Keep a consistent visual design across all modules.
+
+---
+
+# PART 20 – FRONTEND ARCHITECTURE
+
+Technology:
+- React.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+- Lucide React.
+- Recharts.
+- React Router.
+- React Hook Form.
+- Zod validation.
+
+Organise the application into:
+
+src/
+  app/
+    router/
+    providers/
+    layouts/
+
+  components/
+    common/
+    charts/
+    tables/
+    forms/
+    dialogs/
+    navigation/
+
+  features/
+    dashboard/
+    companies/
+    subscriptions/
+    billing/
+    platform-users/
+    access-roles/
+    usage-health/
+    service-logs/
+    integrations/
+    data-settings/
+    support/
+    announcements/
+    help-docs/
+    audit-security/
+
+  services/
+    api/
+    companies/
+    subscriptions/
+    billing/
+    users/
+    monitoring/
+    integrations/
+
+  hooks/
+  types/
+  utils/
+  mock-data/
+  styles/
+
+Use modular, reusable components.
+
+Keep mock data separate from UI components.
+
+Create frontend API service interfaces for future backend integration.
+
+The future backend will use microservices, but do not implement backend services or database migrations in this phase.
+
+Use mock repositories or frontend service adapters to simulate data operations.
+
+Every page must be prepared to replace mock data with API responses later.
+
+---
+
+# PART 21 – MOCK DATA AND REALISM
+
+Use realistic demonstration data.
+
+Create:
+- At least 15 sample companies.
+- Multiple industries.
+- Multiple subscription plans.
+- At least 8 platform administrators and support users.
+- Sample invoices and payment transactions.
+- Sample support tickets.
+- Sample service health records.
+- Sample audit events.
+- Sample notifications.
+
+Clearly identify demo data.
+
+Do not use hardcoded dashboard values that conflict with table records.
+
+Use consistent mock datasets and derive dashboard metrics from those datasets wherever possible.
+
+Persist mock CRUD changes within the frontend session or an appropriate mock data layer.
+
+Never claim that a mocked payment, service health result, subscription renewal or statutory publication is a real-world operation.
+
+---
+
+# PART 22 – UX QUALITY REQUIREMENTS
+
+The application must feel like a finished enterprise product.
+
+Requirements:
+- No dead buttons.
+- No broken navigation.
+- No blank pages.
+- No generic placeholder text.
+- No inconsistent spacing.
+- No inconsistent typography.
+- No unnecessary confirmation dialogs.
+- No browser alert() for normal operations.
+- Use professional dialogs and toast notifications.
+- Maintain keyboard accessibility.
+- Include accessible labels.
+- Use proper focus states.
+- Handle long company names and large numbers.
+- Display currency using Indian formatting where appropriate.
+- Use consistent date and time formatting.
+
+Provide appropriate:
+- Loading states.
+- Empty states.
+- Error states.
+- Success states.
+- Permission-denied states.
+- Not-found pages.
+
+---
+
+# PART 23 – IMPLEMENTATION ORDER
+
+Implement in this sequence:
+
+Phase 1:
+- Shared application shell.
+- Sidebar.
+- Top navbar.
+- Routing.
+- Dashboard overview.
+
+Phase 2:
+- Company Management.
+- Subscription Management.
+- Plans & Billing.
+
+Phase 3:
+- Platform Users.
+- Access & Roles.
+
+Phase 4:
+- Usage & Health.
+- Service Logs.
+- Integrations.
+
+Phase 5:
+- Data & Settings.
+- Support & Tickets.
+- Announcements.
+- Help & Docs.
+
+Phase 6:
+- Audit & Security.
+- Complete interaction testing.
+- Responsive testing.
+- Visual refinement.
+
+Do not stop after implementing the overview dashboard.
+
+Complete every module in the specification.
+
+---
+
+# FINAL ACCEPTANCE CRITERIA
+
+The finished product must:
+
+1. Closely match the uploaded PayFuse dashboard screenshot.
+2. Preserve its sidebar and dashboard alignment.
+3. Include all specified sidebar modules.
+4. Implement every major page.
+5. Implement functional Create, View, Edit and Delete/Archive workflows where applicable.
+6. Implement working search, filters, sorting and pagination.
+7. Implement navigation and detail views.
+8. Use consistent reusable components.
+9. Work on desktop, tablet and mobile.
+10. Use realistic and consistent demo data.
+11. Keep the frontend independent from future microservice implementations.
+12. Have no dead buttons or blank navigation pages.
+
+Build this as a cohesive, premium enterprise SaaS product, not a collection of disconnected admin templates.
+
+Start with the application shell and main dashboard. Then implement the modules in the specified order while preserving the same design system throughout.
+
+Before declaring completion, run the production build and test every navigation item, action, form, table, filter and responsive layout.
